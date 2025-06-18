@@ -21,6 +21,7 @@ const Hero = () => {
           <a href="#contact" className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white/10 transition-colors">
             Reserve Table
           </a>
+        </div>
       </div>
     </section>;
 };
