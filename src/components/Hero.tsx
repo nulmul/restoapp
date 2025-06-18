@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 const Hero = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [ravendoveSnackbarOpen, setRavendoveSnackbarOpen] = useState(false);
 
   const handleEyadClick = () => {
     setSnackbarOpen(true);
     setTimeout(() => setSnackbarOpen(false), 3000);
+  };
+
+  const handleRavendoveClick = () => {
+    setRavendoveSnackbarOpen(true);
+    setTimeout(() => setRavendoveSnackbarOpen(false), 3000);
   };
 
   return <section id="home" className="relative h-[80vh] w-full bg-black">
@@ -34,10 +40,21 @@ const Hero = () => {
           >
             Eyad
           </button>
+          <button
+            onClick={handleRavendoveClick}
+            className="bg-purple-600 text-white px-6 py-3 rounded-md font-medium hover:bg-purple-700 transition-colors"
+          >
+            ravendove
+          </button>
         </div>
         {snackbarOpen && (
           <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded shadow-lg z-50 transition-opacity">
             hello world
+          </div>
+        )}
+        {ravendoveSnackbarOpen && (
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded shadow-lg z-50 transition-opacity">
+            hi raven
           </div>
         )}
       </div>
