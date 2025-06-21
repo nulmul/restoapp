@@ -30,28 +30,28 @@ const Contact = () => {
               <div className="flex items-start">
                 <PhoneIcon className="text-amber-600 mr-4 mt-1" size={24} />
                 <div>
-                  <h4 className="font-bold mb-1">Phone</h4>
-                  <p className="text-gray-600">(555) 123-4567</p>
+                  <h4 className="font-bold mb-1 text-gray-100">Phone</h4>
+                  <p className="text-gray-400">(555) 123-4567</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <MailIcon className="text-amber-600 mr-4 mt-1" size={24} />
                 <div>
-                  <h4 className="font-bold mb-1">Email</h4>
-                  <p className="text-gray-600">info@savorydelights.com</p>
+                  <h4 className="font-bold mb-1 text-gray-100">Email</h4>
+                  <p className="text-gray-400">info@savorydelights.com</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <ClockIcon className="text-amber-600 mr-4 mt-1" size={24} />
                 <div>
-                  <h4 className="font-bold mb-1">Hours</h4>
-                  <p className="text-gray-600">
+                  <h4 className="font-bold mb-1 text-gray-100">Hours</h4>
+                  <p className="text-gray-400">
                     Monday - Thursday: 11am - 10pm
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     Friday - Saturday: 11am - 11pm
                   </p>
-                  <p className="text-gray-600">Sunday: 10am - 9pm</p>
+                  <p className="text-gray-400">Sunday: 10am - 9pm</p>
                 </div>
               </div>
             </div>
@@ -70,24 +70,24 @@ const Contact = () => {
                   <input type="text" id="name" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="Your name" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-gray-300 mb-1">
                     Email
                   </label>
-                  <input type="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Your email" />
+                  <input type="email" id="email" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="Your email" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="date" className="block text-gray-700 mb-1">
+                  <label htmlFor="date" className="block text-gray-300 mb-1">
                     Date
                   </label>
-                  <input type="date" id="date" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                  <input type="date" id="date" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" />
                 </div>
                 <div>
-                  <label htmlFor="time" className="block text-gray-700 mb-1">
+                  <label htmlFor="time" className="block text-gray-300 mb-1">
                     Time
                   </label>
-                  <select id="time" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                  <select id="time" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100">
                     <option value="">Select a time</option>
                     <option value="17:00">5:00 PM</option>
                     <option value="17:30">5:30 PM</option>
@@ -102,10 +102,10 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <label htmlFor="guests" className="block text-gray-700 mb-1">
+                <label htmlFor="guests" className="block text-gray-300 mb-1">
                   Number of Guests
                 </label>
-                <select id="guests" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <select id="guests" className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100">
                   <option value="1">1 Person</option>
                   <option value="2">2 People</option>
                   <option value="3">3 People</option>
@@ -116,10 +116,10 @@ const Contact = () => {
                 </select>
               </div>
               <div>
-                <label htmlFor="message" className="block text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-gray-300 mb-1">
                   Special Requests
                 </label>
-                <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Any special requests or dietary requirements?"></textarea>
+                <textarea id="message" rows={4} className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="Any special requests or dietary requirements?"></textarea>
               </div>
               <button type="submit" className="bg-amber-600 text-white px-6 py-3 rounded-md font-medium hover:bg-amber-700 transition-colors">
                 Reserve Table
