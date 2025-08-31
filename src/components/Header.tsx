@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { MenuIcon, XIcon } from 'lucide-react';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  return <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+  return (
+    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-amber-600">Savory Delights</h1>
         </div>
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           <a href="#home" className="text-gray-300 hover:text-amber-500 font-medium">
             Home
@@ -31,12 +31,13 @@ const Header = () => {
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-gray-300">
-            {isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
+            {isMenuOpen ? 'Close' : 'Menu'}
           </button>
         </div>
       </div>
       {/* Mobile Navigation */}
-      {isMenuOpen && <nav className="md:hidden bg-gray-800 px-4 py-2">
+      {isMenuOpen && (
+        <nav className="md:hidden bg-gray-800 px-4 py-2">
           <div className="flex flex-col space-y-3">
             <a href="#home" className="text-gray-300 hover:text-amber-500 font-medium py-2" onClick={toggleMenu}>
               Home
@@ -54,7 +55,10 @@ const Header = () => {
               Contact
             </a>
           </div>
-        </nav>}
-    </header>;
+        </nav>
+      )}
+    </header>
+  );
 };
+
 export default Header;

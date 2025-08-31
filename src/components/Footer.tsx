@@ -1,5 +1,5 @@
 import React from 'react';
-import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react';
+
 const Footer = () => {
   return <footer className="bg-black text-white py-12 w-full">
       <div className="container mx-auto px-4">
@@ -15,13 +15,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-amber-500 transition-colors">
-                <FacebookIcon size={20} />
+                
               </a>
               <a href="#" className="text-gray-300 hover:text-amber-500 transition-colors">
-                <InstagramIcon size={20} />
+                
               </a>
               <a href="#" className="text-gray-300 hover:text-amber-500 transition-colors">
-                <TwitterIcon size={20} />
+                
               </a>
             </div>
           </div>
