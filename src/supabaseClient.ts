@@ -2,8 +2,8 @@
 import { createClient } from '@supabase/supabase-js'
 
 // WARNING: These credentials are now exposed in your code and will be visible on GitHub!
-const supabaseUrl = 'YOUR_SUPABASE_URL_HERE'
-const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY_HERE'
+const supabaseUrl = 'https://your-project-ref.supabase.co'
+const supabaseAnonKey = 'your-anon-public-key-here'
 
 if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase credentials in code.')
