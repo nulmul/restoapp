@@ -15,7 +15,7 @@ export function App() {
       <Menu />
       <About />
       <Testimonials />
-      {/* <Contact /> */}
+      <Contact />
       <Footer />
     </div>
   );

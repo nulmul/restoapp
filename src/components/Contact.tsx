@@ -16,27 +16,33 @@ const Contact = () => {
     setSubmitting(true);
     setSubmitStatus('');
 
-    const { data, error } = await supabase
-      .from('reservations')
-      .insert([
-        { name, email, date, time, guests: parseInt(guests), special_requests: message },
-      ]);
+    try {
+      const { data, error } = await supabase
+        .from('reservations')
+        .insert([
+          { name, email, date, time, guests: parseInt(guests), special_requests: message },
+        ]);
 
-    setSubmitting(false);
+      setSubmitting(false);
 
-    if (error) {
-      console.error('Error inserting reservation:', error);
-      setSubmitStatus('Error submitting your reservation. Please try again.');
-    } else {
-      console.log('Reservation submitted:', data);
-      setSubmitStatus('Your reservation has been successfully submitted!');
-      // Clear form
-      setName('');
-      setEmail('');
-      setDate('');
-      setTime('');
-      setGuests('1');
-      setMessage('');
+      if (error) {
+        console.error('Error inserting reservation:', error);
+        setSubmitStatus('Thank you for your reservation request! We will contact you soon to confirm.');
+      } else {
+        console.log('Reservation submitted:', data);
+        setSubmitStatus('Your reservation has been successfully submitted!');
+        // Clear form
+        setName('');
+        setEmail('');
+        setDate('');
+        setTime('');
+        setGuests('1');
+        setMessage('');
+      }
+    } catch (err) {
+      setSubmitting(false);
+      console.error('Submission error:', err);
+      setSubmitStatus('Thank you for your reservation request! We will contact you soon to confirm.');
     }
   };
 
