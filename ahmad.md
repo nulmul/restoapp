@@ -1,1 +1,1 @@
-fuck u cunt
+fuck u nas
