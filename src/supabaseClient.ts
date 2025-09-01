@@ -1,13 +1,23 @@
 
-// For now, we'll create a mock Supabase client to prevent crashes
-// You can replace this with actual Supabase configuration later
+import { createClient } from '@supabase/supabase-js'
 
-export const supabase = {
-  from: (table: string) => ({
-    insert: async (data: any[]) => {
-      // Mock implementation - just log the data for now
-      console.log('Mock reservation submission:', data);
-      return { data: data, error: null };
-    }
-  })
-};
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables. Please add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your secrets.')
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// Define types for our reservation data
+export interface Reservation {
+  id?: number
+  name: string
+  email: string
+  date: string
+  time: string
+  guests: number
+  special_requests?: string
+  created_at?: string
+}

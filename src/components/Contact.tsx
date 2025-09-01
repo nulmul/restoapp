@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '../supabaseClient'; // Import the supabase client
+import { supabase, type Reservation } from '../supabaseClient';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -17,20 +17,28 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
+      const reservationData: Omit<Reservation, 'id' | 'created_at'> = {
+        name,
+        email,
+        date,
+        time,
+        guests: parseInt(guests),
+        special_requests: message || null
+      };
+
       const { data, error } = await supabase
         .from('reservations')
-        .insert([
-          { name, email, date, time, guests: parseInt(guests), special_requests: message },
-        ]);
+        .insert([reservationData])
+        .select();
 
       setSubmitting(false);
 
       if (error) {
         console.error('Error inserting reservation:', error);
-        setSubmitStatus('Thank you for your reservation request! We will contact you soon to confirm.');
+        setSubmitStatus('Error submitting your reservation. Please try again or call us directly.');
       } else {
-        console.log('Reservation submitted:', data);
-        setSubmitStatus('Your reservation has been successfully submitted!');
+        console.log('Reservation submitted successfully:', data);
+        setSubmitStatus('Your reservation has been successfully submitted! We will contact you to confirm.');
         // Clear form
         setName('');
         setEmail('');
@@ -42,7 +50,7 @@ const Contact = () => {
     } catch (err) {
       setSubmitting(false);
       console.error('Submission error:', err);
-      setSubmitStatus('Thank you for your reservation request! We will contact you soon to confirm.');
+      setSubmitStatus('Error submitting your reservation. Please check your connection and try again.');
     }
   };
 
