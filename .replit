@@ -36,7 +36,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python3 chatbot_api.py"
+args = "cd restoapp && python3 chatbot_api.py"
 waitForPort = 8000
 
 [workflows.workflow.metadata]
