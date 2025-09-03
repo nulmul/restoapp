@@ -46,11 +46,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             resetForm();
           }, 1000);
         } else if (data.user && !data.session) {
-          setSuccess('Please check your email to confirm your account!');
+          setSuccess('Account created! Check your email to verify your account, or contact support if you don\'t receive the email.');
           setTimeout(() => {
             setIsLogin(true);
             setSuccess('');
-          }, 3000);
+          }, 5000);
         } else {
           setSuccess('Account created! You can now sign in.');
           setTimeout(() => {
