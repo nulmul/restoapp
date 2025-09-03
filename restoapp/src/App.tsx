@@ -7,18 +7,21 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import { AuthProvider } from './contexts/AuthContext';
 
 export function App() {
   return (
-    <div className="font-sans bg-gray-900 text-gray-100">
-      <Header />
-      <Hero />
-      <Menu />
-      <About />
-      <Testimonials />
-      <Contact />
-      <Footer />
-      <Chatbot />
-    </div>
+    <AuthProvider>
+      <div className="font-sans bg-gray-900 text-gray-100">
+        <Header />
+        <Hero />
+        <Menu />
+        <About />
+        <Testimonials />
+        <Contact />
+        <Footer />
+        <Chatbot />
+      </div>
+    </AuthProvider>
   );
 }
