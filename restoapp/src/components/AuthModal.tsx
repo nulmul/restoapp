@@ -35,13 +35,29 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           resetForm();
         }, 1000);
       } else {
-        const { error } = await signUp(email, password, fullName);
+        const { data, error } = await signUp(email, password, fullName);
         if (error) throw error;
-        setSuccess('Please check your email to confirm your account!');
-        setTimeout(() => {
-          setIsLogin(true);
-          setSuccess('');
-        }, 3000);
+        
+        // Check if user is immediately confirmed (email confirmation disabled)
+        if (data.user && data.session) {
+          setSuccess('Account created and signed in successfully!');
+          setTimeout(() => {
+            onClose();
+            resetForm();
+          }, 1000);
+        } else if (data.user && !data.session) {
+          setSuccess('Please check your email to confirm your account!');
+          setTimeout(() => {
+            setIsLogin(true);
+            setSuccess('');
+          }, 3000);
+        } else {
+          setSuccess('Account created! You can now sign in.');
+          setTimeout(() => {
+            setIsLogin(true);
+            setSuccess('');
+          }, 2000);
+        }
       }
     } catch (error: any) {
       setError(error.message);

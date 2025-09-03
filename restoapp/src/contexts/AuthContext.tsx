@@ -56,6 +56,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         },
       },
     });
+    
+    // Debug logging
+    console.log('Signup response:', { data, error });
+    console.log('User after signup:', data.user);
+    console.log('Session after signup:', data.session);
+    
     return { data, error };
   };
 
